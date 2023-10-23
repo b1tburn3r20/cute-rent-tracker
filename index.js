@@ -21,6 +21,7 @@ function resetInputFills(){
 }
 
 function clearChoreList(){
+    choreList.textContent = ''
 }
 
 
@@ -29,6 +30,7 @@ onValue(rentEntriesListInDB, function(snapshot){
         clearChoreList()
         let choresArray = Object.entries(snapshot.val())
         choresArray.reverse()
+        rentNumberEl.textContent = 250;
         for (const chore of choresArray){
             createChoreItem(chore)
             calculateRent(chore)
@@ -39,6 +41,7 @@ onValue(rentEntriesListInDB, function(snapshot){
     }
 })
 function createChoreItem(choreValue){
+
     let newEl = document.createElement('li')
     newEl.textContent = `Completed chore: ${choreValue[1].chore} for $${choreValue[1].number}`
     newEl.className = 'chore-item'
@@ -46,6 +49,7 @@ function createChoreItem(choreValue){
     newEl.addEventListener("click", function(){
         let exactLocationOfChoresList = ref(database, `chores/${choreValue[0]}`)
         remove(exactLocationOfChoresList)
+
     })
     
 }
@@ -53,21 +57,23 @@ function createChoreItem(choreValue){
 
 
 addButton.addEventListener('click', function(){
-    const data = {
-        number: numberInput.value,
-        chore: textInput.value
+    let textValue = textInput.value.trim()
+    let numberValue = numberInput.value.trim()
+    if (textValue !== "" || numberValue !== ''){
+        const data = {
+            number: numberInput.value,
+            chore: textInput.value
+        }
+        push(rentEntriesListInDB, data)
+        resetInputFills()
     }
-    push(rentEntriesListInDB, data)
-    resetInputFills()
+    
 })
 function calculateRent(choreValue){
     let currentRent = parseInt(rentNumberEl.textContent)
     for (const number of choreValue[1].number){
         let num = parseInt(number)
-        console.log(typeof currentRent)
-        console.log(typeof num)
         currentRent = currentRent - num
-        console.log(currentRent)
     }
     rentNumberEl.textContent = currentRent
 
