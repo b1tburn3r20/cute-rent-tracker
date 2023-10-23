@@ -93,3 +93,11 @@ header{
     padding-bottom: 1.3vh;
 
 }
+.chore-item{
+    padding: 1rem;
+    background-color: rgb(235, 220, 244);
+    border-radius: 3vh;
+    box-shadow: 1px 1px rgba(0, 0, 0, .3);
+    margin: 1rem;
+    list-style: none;
+}
