@@ -75,13 +75,11 @@ addButton.addEventListener('click', function(){
 })
 function calculateRent(choreValue){
     let currentRent = parseInt(rentNumberEl.textContent)
-    for (const number of choreValue[1].number){
-        let num = parseInt(number)
-        currentRent = currentRent - num
-    }
+    let num = parseInt(choreValue[1].number)
+    currentRent = currentRent - num
     rentNumberEl.textContent = currentRent
-
 }
+
 function resetRent(snapshot){
     let choresArray = Object.entries(snapshot.val())
     for (let chore of choresArray){

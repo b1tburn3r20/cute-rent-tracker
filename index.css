@@ -55,10 +55,8 @@ header{
     display: flex;
     justify-content: center;
     height: 10vh;
-
 }
 #number-input{
-    width: 10%;
     text-align: center;
     border-left: none;
     border-top: none;
@@ -69,9 +67,12 @@ header{
     border-right: 3px solid rgba(0, 0, 0, .3);
     box-shadow: 1px 1px rgba(0, 0, 0, .3);
     margin-bottom: 1vh;
+    width: 3rem;
+
 
 }
 #text-input{
+    width: 11rem;
     border-top-right-radius: 3vh;
     border-bottom-right-radius: 3vh;
     border: none;
