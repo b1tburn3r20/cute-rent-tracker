@@ -12,6 +12,7 @@ const textInput = document.getElementById('text-input')
 const addButton = document.getElementById('add-button')
 const choreList = document.getElementById('chore-list')
 const rentNumberEl = document.getElementById('rent-number')
+const rentResetButton = document.getElementById('reset-rent')
 rentNumberEl.textContent = 250
 
 
@@ -37,13 +38,16 @@ onValue(rentEntriesListInDB, function(snapshot){
         }
     }
     else {
-        choreList.innerHTML = "No chores done yet"
+        let newEl = document.createElement('li')
+        newEl.textContent = `Do chores to work off rent`
+        newEl.className = 'no-chores-done'
+        choreList.appendChild(newEl)
     }
 })
 function createChoreItem(choreValue){
 
     let newEl = document.createElement('li')
-    newEl.textContent = `Completed chore: ${choreValue[1].chore} for $${choreValue[1].number}`
+    newEl.textContent = `Complete: ${choreValue[1].chore} for $${choreValue[1].number}`
     newEl.className = 'chore-item'
     choreList.appendChild(newEl)
     newEl.addEventListener("click", function(){
@@ -59,7 +63,7 @@ function createChoreItem(choreValue){
 addButton.addEventListener('click', function(){
     let textValue = textInput.value.trim()
     let numberValue = numberInput.value.trim()
-    if (textValue !== "" || numberValue !== ''){
+    if (textValue !== "" && numberValue !== ''){
         const data = {
             number: numberInput.value,
             chore: textInput.value
@@ -78,3 +82,17 @@ function calculateRent(choreValue){
     rentNumberEl.textContent = currentRent
 
 }
+function resetRent(snapshot){
+    let choresArray = Object.entries(snapshot.val())
+    for (let chore of choresArray){
+        let exactLocationOfChore = ref(database, `chores/${chore[0]}`)
+        remove(exactLocationOfChore)
+    }
+}
+
+rentResetButton.addEventListener('click', function(){
+    onValue(rentEntriesListInDB, function(snapshot){
+        resetRent(snapshot)
+        location.reload()
+    })
+})

@@ -4,24 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/index.css" />
-    <title>Rent Tracker</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Rent-Rocket</title>
   </head>
   <body>
     <div id="container">
       <img src="/images/rocketship.png" alt="an image of a bear file" />
-      <header>Rent Rocket!</header>
-      <p id="current-rent">Current Rent: $<span id="rent-number"></span></p>
+      <header>Rent-Rocket!</header>
+      <p id="current-rent">Current Rent Due: $<span id="rent-number"></span></p>
       <div id="input-container">
         <input id="number-input" type="number" placeholder="0" required />
         <input
           id="text-input"
           type="text"
-          placeholder="type chore here"
+          placeholder="Enter Chore Here..."
           required
         />
       </div>
-      <button id="add-button">add chore</button>
+      <button id="add-button">Add chore</button>
       <div id="chore-list"></div>
+      <button id="reset-rent">Reset Rent</button>
     </div>
     <script src="index.js" type="module"></script>
     <!-- <script src="functions.js"></script> -->

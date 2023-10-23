@@ -7,7 +7,9 @@
     user-select: none;
 }
 body{
-    background-color: black;
+    background: rgb(223, 210, 255);
+    color: rgb(46, 46, 46);
+
 }
 img{
     max-width: 300px;
@@ -29,9 +31,11 @@ header{
     margin: 0 0 2vh 0;
     border-radius: 15px;
     border: none;
-    background-color: white;
+    background-color: rgb(187, 255, 171);
     padding: 1rem;
     box-shadow: 1px 1px rgba(0, 0, 0, .3);
+    color: rgb(47, 47, 47);
+
 }
 #rent-number{
     font-weight: 700;
@@ -44,7 +48,6 @@ header{
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    border: 3px solid black;
     border-radius: 15px;
     background: rgb(223, 210, 255);
 }
@@ -84,17 +87,57 @@ header{
     padding: 1rem;
     border-radius: 5vh;
     box-shadow: 2px 2px rgba(0, 0, 0, .3);
+    color: rgb(47, 47, 47);
+    font-weight: 600;
+    
+
+
 }
-#add-button:hover{
-    background-color: rgb(255, 213, 98);
-    cursor: pointer;
-}
+
 #add-button:active{
     margin-left: .3vw;
     margin-top: .3vh;
     box-shadow: 1px 1px rgba(0, 0, 0, .3);
     padding-bottom: 1.3vh;
+    color: rgb(46, 46, 46);
+    background-color: rgb(255, 213, 98);
+    cursor: pointer;
+    
+}
+#reset-rent{
+    border: none;
+    background-color: rgb(255, 129, 129);
+    padding: 1rem;
+    border-radius: 5vh;
+    box-shadow: 2px 2px rgba(0, 0, 0, .3);
+    color: rgb(47, 47, 47);
+    font-weight: 900;
 
+
+}
+
+#reset-rent:active{
+    margin-left: .3vw;
+    margin-top: .3vh;
+    box-shadow: 1px 1px rgba(0, 0, 0, .3);
+    padding-bottom: 1.3vh;
+    background-color: rgb(209, 78, 78);
+    cursor: pointer;
+
+}
+#chore-list{
+    border-top: dashed 1vh rgba(0, 0, 0, .3);
+    border-bottom: dashed 1vh rgba(0, 0, 0, .3);
+    margin: 1vh;
+}
+.no-chores-done{
+    background-color: rgb(254, 111, 111);
+    padding: 2vh;
+    list-style: none;
+    color: rgb(47, 47, 47);
+    margin: 1rem;
+    border-radius: 15px;
+    font-weight: 900;
 }
 .chore-item{
     padding: 1rem;
@@ -103,4 +146,8 @@ header{
     box-shadow: 1px 1px rgba(0, 0, 0, .3);
     margin: 1rem;
     list-style: none;
+    cursor: pointer;
+}
+.chore-item:active{
+    background-color: rgb(255, 105, 105);
 }
