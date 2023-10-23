@@ -11,7 +11,12 @@ const numberInput = document.getElementById('number-input')
 const textInput = document.getElementById('text-input')
 const addButton = document.getElementById('add-button')
 
+function resetInputFills(){
+    numberInput.value = ''
+    textInput.value = ''
+}
+
 addButton.addEventListener('click', function(){
-    // push(rentEntriesListInDB, textInput.value)
-    console.log(textInput.value)
+    push(rentEntriesListInDB, textInput.value)
+    resetInputFills()
 })
